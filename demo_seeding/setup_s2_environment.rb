@@ -83,11 +83,11 @@ tube_with_solvent_barcodes = Object.new.tap do |o|
   class << o
     attr_accessor :last_barcode
   end
-  o.last_barcode = 10000
+  o.last_barcode = 9900000000000
 
   def o.pop
     self.last_barcode += 1
-    "FR#{self.last_barcode}"
+    self.last_barcode.to_s
   end
 end
 
