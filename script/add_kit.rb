@@ -44,4 +44,5 @@ STORE.with_session do |session|
   labellable[options[:position]] = Lims::LaboratoryApp::Labels::Labellable::Label.new(
     :type => options[:label_type],
     :value => options[:label_value])
+  session << labellable
 end
