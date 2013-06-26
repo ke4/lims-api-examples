@@ -15,13 +15,13 @@ OptionParser.new do |opts|
   opts.banner = "Usage: add_kit.rb [options]"
   opts.on("-d", "--db [DB]") { |v| options[:db] = v }
   opts.on("-v", "--verbose") { |v| options[:verbose] = true }
-  opts.on("-pn", "--process_name P") { |pn| options[:process_name] = pn }
-  opts.on("-at", "--aliquot_type AT") { |at| options[:aliquot_type] = at }
-  opts.on("-ed", "--expiry_date ED") { |ed| options[:expiry_date] = ed }
-  opts.on("-am", "--amount AM") { |am| options[:amount] = am }
-  opts.on("-lt", "--label_type LT") { |lt| options[:label_type] = lt }
+  opts.on("-n", "--process_name P") { |pn| options[:process_name] = pn }
+  opts.on("-k", "--aliquot_type AT") { |at| options[:aliquot_type] = at }
+  opts.on("-e", "--expiry_date ED") { |ed| options[:expiry_date] = ed }
+  opts.on("-a", "--amount AM") { |am| options[:amount] = am }
+  opts.on("-t", "--label_type LT") { |lt| options[:label_type] = lt }
   opts.on("-p", "--position LP") { |lp| options[:position] = lp }
-  opts.on("-lv", "--label_value LV") { |lv| options[:label_value] = lv }
+  opts.on("-v", "--label_value LV") { |lv| options[:label_value] = lv }
 end.parse!
 
 CONNECTION_STRING = options[:db] || "sqlite:///Users/ke4/projects/lims-support-app/test.db"
