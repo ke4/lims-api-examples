@@ -4,9 +4,6 @@ require 'lims-core/persistence/sequel'
 require 'optparse'
 require 'yaml'
 
-require 'rubygems'
-require 'ruby-debug'
-
 # Setup the arguments passed to the script
 options = {}
 OptionParser.new do |opts|
@@ -14,7 +11,7 @@ OptionParser.new do |opts|
   opts.on("-d", "--db [DB]") { |v| options[:db] = v }
 end.parse!
 
-CONNECTION_STRING = options[:db] || "sqlite:///Users/ke4/projects/lims-laboratory-app/dev.db"
+CONNECTION_STRING = options[:db]
 DB = Sequel.connect(CONNECTION_STRING)
 STORE = Lims::Core::Persistence::Sequel::Store.new(DB)
 config = YAML.load_file(File.join('config','seed_parameters.yml'))
