@@ -2,6 +2,7 @@ require 'sequel'
 require 'lims-laboratory-app'
 require 'lims-core/persistence/sequel'
 require 'optparse'
+require 'yaml'
 
 require 'rubygems'
 require 'ruby-debug'
@@ -16,7 +17,8 @@ end.parse!
 CONNECTION_STRING = options[:db] || "sqlite:///Users/ke4/projects/lims-laboratory-app/dev.db"
 DB = Sequel.connect(CONNECTION_STRING)
 STORE = Lims::Core::Persistence::Sequel::Store.new(DB)
-NUMBER_OF_TUBES = 12
+config = YAML.load_file(File.join('config','seed_parameters.yml'))
+NUMBER_OF_TUBES = config["number_of_tubes"]
 
 # Needed for the order creation
 # - a valid study uuid
